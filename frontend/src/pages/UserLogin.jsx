@@ -8,78 +8,91 @@ const UserLogin = () => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ userData, setUserData ] = useState({})
-
   const { user, setUser } = useContext(UserDataContext)
   const navigate = useNavigate()
 
-
-
   const submitHandler = async (e) => {
     e.preventDefault();
-
     const userData = {
       email: email,
       password: password
     }
-
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData)
-
     if (response.status === 200) {
       const data = response.data
       setUser(data.user)
       localStorage.setItem('token', data.token)
       navigate('/home')
     }
-
-
     setEmail('')
     setPassword('')
   }
 
   return (
-    <div className='p-7 h-screen flex flex-col justify-between'>
-      <div>
-        <img className='w-16 mb-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s" alt="" />
-
-        <form onSubmit={(e) => {
-          submitHandler(e)
-        }}>
-          <h3 className='text-lg font-medium mb-2'>What's your email</h3>
-          <input
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-            }}
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            type="email"
-            placeholder='email@example.com'
-          />
-
-          <h3 className='text-lg font-medium mb-2'>Enter Password</h3>
-
-          <input
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value)
-            }}
-            required type="password"
-            placeholder='password'
-          />
-
-          <button
-            className='bg-[#111] text-white font-semibold mb-3 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-          >Login</button>
-
-        </form>
-        <p className='text-center'>New here? <Link to='/signup' className='text-blue-600'>Create new Account</Link></p>
+    <div className="min-h-screen bg-white relative">
+      {/* Logo Section */}
+      <div className='absolute top-5 left-5'>
+        <img 
+          className='w-20 md:w-32 lg:w-32 rounded-full shadow-lg border-4 border-yellow-400 hover:scale-105 transition-transform duration-300' 
+          src="/images/RideMate.png" 
+          alt="RideMate Logo" 
+        />
       </div>
-      <div>
+
+      {/* Form Section */}
+      <div className='p-7 pt-28 md:pt-40 min-h-screen flex flex-col justify-between'>
+        <div>
+          <form onSubmit={submitHandler} className="space-y-6">
+            <div>
+              <h3 className='text-xl font-bold mb-4 text-gray-800'>Welcome Back</h3>
+              <input
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className='bg-gray-100 rounded-xl px-4 py-3 border-2 border-transparent w-full text-lg
+                         focus:border-yellow-400 focus:bg-white transition-all duration-300 outline-none'
+                type="email"
+                placeholder='Email address'
+              />
+            </div>
+
+            <div>
+              <input
+                className='bg-gray-100 rounded-xl px-4 py-3 border-2 border-transparent w-full text-lg
+                         focus:border-yellow-400 focus:bg-white transition-all duration-300 outline-none'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required 
+                type="password"
+                placeholder='Password'
+              />
+            </div>
+
+            <button
+              className='bg-black text-white font-bold rounded-xl px-4 py-3 w-full text-lg
+                       hover:bg-yellow-400 hover:text-black transform hover:scale-[1.02] 
+                       transition-all duration-300 shadow-md'
+            >
+              Login
+            </button>
+          </form>
+
+          <p className='text-center mt-6'>
+            New here? 
+            <Link to='/signup' className='text-yellow-500 hover:text-yellow-600 ml-2 font-semibold'>
+              Create new Account
+            </Link>
+          </p>
+        </div>
+
         <Link
           to='/captain-login'
-          className='bg-[#10b461] flex items-center justify-center text-white font-semibold mb-5 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-        >Sign in as Captain</Link>
+          className='bg-black text-white font-bold rounded-xl px-4 py-3 w-full text-lg text-center
+                   hover:bg-yellow-400 hover:text-black transform hover:scale-[1.02] 
+                   transition-all duration-300 shadow-md'
+        >
+          Sign in as Captain
+        </Link>
       </div>
     </div>
   )
