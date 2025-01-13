@@ -40,6 +40,8 @@ RideMate is a ride-hailing application that connects users with drivers (captain
 2.Install dependencies:
    ```bash
    npm install
+   ```
+3.dfdfdfdfdfd
 
 
 
