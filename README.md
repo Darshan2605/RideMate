@@ -37,3 +37,11 @@ RideMate is a ride-hailing application that connects users with drivers (captain
    ```bash
    git clone https://github.com/your-username/RideMate.git
    cd RideMate/Backend
+2.Install dependencies:
+   ```bash
+   git clone https://github.com/your-username/RideMate.git
+   cd RideMate/Backend
+
+
+
+
