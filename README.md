@@ -1,8 +1,16 @@
 # RideMate
 
+Demo-https://drive.google.com/file/d/1Er_L3ShAr8mTd1MccA2z1aAgm5i61tNE/view?usp=sharing
+
 ## Description of Project
 
 RideMate is a ride-hailing application that connects users with drivers (captains) for transportation services. Users can book rides, track their rides in real-time, and make payments. Captains can register, log in, and accept ride requests. The application includes features such as live tracking, fare estimation, and ride management.
+
+
+
+![image](https://github.com/user-attachments/assets/525eb595-da68-45c4-a7db-f1ac6f8cc16a)![image](https://github.com/user-attachments/assets/39ef6f72-78bf-4117-9356-e00f1bbcf9c4)
+
+
 
 ## Tools and Technologies Used
 
