@@ -1,17 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import LiveTracking from '../components/LiveTracking'
 import CaptainDetails from '../components/CaptainDetails'
 import RidePopUp from '../components/RidePopUp'
+import ConfirmRidePopUp from '../components/ConfirmRidePopUp'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import ConfirmRidePopUp from '../components/ConfirmRidePopUp'
-import { useEffect, useContext } from 'react'
 import { SocketContext } from '../context/SocketContext'
 import { CaptainDataContext } from '../context/CapatainContext'
 import axios from 'axios'
 
 const CaptainHome = () => {
-
+    // ...existing state and refs...
     const [ ridePopupPanel, setRidePopupPanel ] = useState(false)
     const [ confirmRidePopupPanel, setConfirmRidePopupPanel ] = useState(false)
 
@@ -100,21 +100,40 @@ const CaptainHome = () => {
     }, [ confirmRidePopupPanel ])
 
     return (
-        <div className='h-screen'>
-            <div className='fixed p-6 top-0 flex items-center justify-between w-screen'>
-                <img className='w-16' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
-                <Link to='/captain-home' className=' h-10 w-10 bg-white flex items-center justify-center rounded-full'>
-                    <i className="text-lg font-medium ri-logout-box-r-line"></i>
+        <div className='h-screen relative overflow-hidden bg-white'>
+            {/* Header */}
+            <div className='fixed p-6 top-0 flex items-center justify-between w-screen z-10'>
+                <img 
+                    className='w-20 md:w-32 rounded-full shadow-lg border-4 border-yellow-400 hover:scale-105 transition-transform duration-300' 
+                    src="/images/RideMate.png" 
+                    alt="RideMate Logo" 
+                />
+                <Link 
+                    to='/captain-login' 
+                    className='h-12 w-12 bg-black text-white hover:bg-yellow-400 hover:text-black 
+                             flex items-center justify-center rounded-full transition-all duration-300'
+                >
+                    <i className="text-xl ri-logout-box-r-line"></i>
                 </Link>
             </div>
-            <div className='h-3/5'>
-                <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" />
 
+            {/* Map */}
+            <div className='h-screen w-screen'>
+                <LiveTracking />
             </div>
-            <div className='h-2/5 p-6'>
-                <CaptainDetails />
+
+            {/* Captain Details Panel */}
+            <div className='fixed bottom-0 left-0 right-0 bg-white shadow-lg rounded-t-3xl'>
+                <div className='p-6'>
+                    <CaptainDetails />
+                </div>
             </div>
-            <div ref={ridePopupPanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-10 pt-12'>
+
+            {/* Ride Popup */}
+            <div 
+                ref={ridePopupPanelRef} 
+                className='fixed w-full z-20 bottom-0 translate-y-full bg-white px-6 py-8 rounded-t-3xl shadow-lg'
+            >
                 <RidePopUp
                     ride={ride}
                     setRidePopupPanel={setRidePopupPanel}
@@ -122,10 +141,17 @@ const CaptainHome = () => {
                     confirmRide={confirmRide}
                 />
             </div>
-            <div ref={confirmRidePopupPanelRef} className='fixed w-full h-screen z-10 bottom-0 translate-y-full bg-white px-3 py-10 pt-12'>
+
+            {/* Confirm Ride Popup */}
+            <div 
+                ref={confirmRidePopupPanelRef} 
+                className='fixed w-full h-screen z-20 bottom-0 translate-y-full bg-white px-6 py-8'
+            >
                 <ConfirmRidePopUp
                     ride={ride}
-                    setConfirmRidePopupPanel={setConfirmRidePopupPanel} setRidePopupPanel={setRidePopupPanel} />
+                    setConfirmRidePopupPanel={setConfirmRidePopupPanel}
+                    setRidePopupPanel={setRidePopupPanel}
+                />
             </div>
         </div>
     )
