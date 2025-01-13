@@ -34,14 +34,55 @@ RideMate is a ride-hailing application that connects users with drivers (captain
 ### Backend Setup
 
 1. Clone the repository:
+   ```bash
    git clone https://github.com/your-username/RideMate.git
    cd RideMate/Backend
+   ```
 
 2.Install dependencies:
    ```bash
    npm install
    ```
-3.dfdfdfdfdfd
+
+3.Create a .env file in the Backend directory and add the following environment variables:
+   ```bash
+   PORT=4000
+   DB_CONNECT=mongodb://127.0.0.1:27017/uber-app
+   JWT_SECRET=This-is-Uber-App
+   GOOGLE_MAPS_API=your-google-maps-api-key
+   ```
+
+4.Start the backend server:
+   ```bash
+   npm start
+   ```
+
+5.Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
+
+6.Install dependencies:
+   ```bash
+   npm install
+   ```
+
+7.Create a .env file in the frontend directory and add the following environment variables:
+   ```bash
+   VITE_BASE_URL=http://localhost:4000
+   VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+   ```
+
+8.Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
+
+9.Running the Application
+Open your browser and navigate to http://localhost:5173 to access the RideMate application.
+
+
+
 
 
 
