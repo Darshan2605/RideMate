@@ -8,7 +8,15 @@ RideMate is a ride-hailing application that connects users with drivers (captain
 
 
 
-![image](https://github.com/user-attachments/assets/525eb595-da68-45c4-a7db-f1ac6f8cc16a)![image](https://github.com/user-attachments/assets/39ef6f72-78bf-4117-9356-e00f1bbcf9c4)
+
+
+
+
+![image](https://github.com/user-attachments/assets/525eb595-da68-45c4-a7db-f1ac6f8cc16a)![image](https://github.com/user-attachments/assets/39ef6f72-78bf-4117-9356-e00f1bbcf9c4)![image](https://github.com/user-attachments/assets/fb3fc928-269d-4852-b4a0-b922b8207ebf)![image](https://github.com/user-attachments/assets/fefba780-e80f-4997-a662-239758ce1a4c)![image](https://github.com/user-attachments/assets/070e1292-4aec-4e79-b181-2a3194e83974)![image](https://github.com/user-attachments/assets/54d7ba1c-68a9-4697-96c0-a12e68db7acd)
+
+
+
+
 
 
 
